@@ -1,12 +1,19 @@
+package com.mycompany.practicaud3funciones;
+import java.util.Scanner;
+/**
+ *
+ * @author usuario
+ */
 public class Practicaud3Funciones {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Menu de operaciones");
-        System.out.println("Introduce el tipo de operacion que quieres realizar: ");
+        System.out.println("Menu de operaciones"); 
         System.out.println("1-suma , 2- resta , 3- multiplicacion, 4- division , 5 - salir del menu");
-        
-        int menuOpcion = 0;
+        System.out.println("Introduce el tipo de operacion que quieres realizar: ");
+         int usuarioopcion = sc.nextInt();
+      do{  
+       int menuOpcion= 0;
         switch(menuOpcion){
             case 1:
                 System.out.println("Introduce el valor de x para la suma:");
@@ -52,8 +59,12 @@ public class Practicaud3Funciones {
                 double resultadodivision;
                 resultadodivision = division(divisor1 , divisor2);
                 System.out.println("resultado: " +resultadodivision);
-                break;
+                
+            default:
+                System.out.println("Final de las operaciones");
         }
+      }while(usuarioopcion != 5);
+      System.out.println("Fin de ejecución");
     }
     
     public static double suma ( double x , double y){
