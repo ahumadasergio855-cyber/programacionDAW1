@@ -1,3 +1,4 @@
+
 package com.mycompany.ud4ejerciciofunciones;
 import java.util.Scanner;
 import java.lang.Math;
@@ -36,7 +37,19 @@ public class Ud4EjercicioFunciones {
                 int numPar = sc.nextInt();
                 //declaracion de la funcion 
                  numPares(numPar);
-                
+                 
+                 break;
+            case 3: 
+                System.out.print("Introduce la coordenada del eje x1");
+                double x1 = sc.nextDouble();
+                System.out.print("Introduce la coordenada del eje y1");
+                double y1 =  sc.nextDouble();
+                System.out.print("introduce la coordenada del ejece x2");
+                double x2 = sc.nextDouble();
+                System.out.print("introduce la coordenada del eje y2");
+                double y2 = sc.nextDouble();
+                double resultadodistancia;
+                 resultadodistancia = distancia(  distance);
         }
         
     }
@@ -68,7 +81,10 @@ public class Ud4EjercicioFunciones {
             return numPar;
         }
         
-        public static double distancia(){
-            
+        public static double distancia( double distance){
+            distance = Math.sqrt((Math.pow((x1 - x2), 2) )+ Math.pow((y1 - y2), 2) );
+            System.out.print("distancia es:" +distance);
+            return distance;
+                    
         }
 }
