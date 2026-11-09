@@ -1,10 +1,3 @@
-
-package com.mycompany.practicadefunciones;
-import java.util.Scanner;
-/**
- *
- * @author Carmen
- */
 public class Practicadefunciones {
 
     public static double areaRectangulo(double base , double altura){
@@ -20,9 +13,7 @@ public class Practicadefunciones {
         System.out.println("  mini calculadora SAA");
         System.out.println("-----------------------");
         System.out.println("1. Funcion mayor de dos numeros");
-        System.out.println("2. Restar");
-        System.out.println("3. Multiplicar");
-        System.out.println("4. Dividir");
+       
         System.out.println("5. Salir");
         
         System.out.println("Seleccion opción: ");
@@ -36,8 +27,8 @@ public class Practicadefunciones {
                     int n2 = sc.nextInt();
                     int resultado = mayor( n1, n2 );
                     System.out.println(+resultado);
-                    break;
-                case 2:
+                  
+                
                     
                     
                     
@@ -46,6 +37,8 @@ public class Practicadefunciones {
             System.out.println("Fin de la ejecucion");      
                         
             }
+            System.out.println("Seleccione opcion: ");
+            menu = sc.nextInt();
             
             
         }
