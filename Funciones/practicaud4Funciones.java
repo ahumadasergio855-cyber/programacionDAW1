@@ -1,5 +1,3 @@
-
-package com.mycompany.ud4ejerciciofunciones;
 import java.util.Scanner;
 import java.lang.Math;
         
@@ -48,8 +46,10 @@ public class Ud4EjercicioFunciones {
                 double x2 = sc.nextDouble();
                 System.out.print("introduce la coordenada del eje y2");
                 double y2 = sc.nextDouble();
-                double resultadodistancia;
-                 resultadodistancia = distancia(  distance);
+                
+                double distance= distancia(x1, y1, x2, y2);
+                
+                System.out.println("La distancia es: " + distance);
         }
         
     }
@@ -81,8 +81,8 @@ public class Ud4EjercicioFunciones {
             return numPar;
         }
         
-        public static double distancia( double distance){
-            distance = Math.sqrt((Math.pow((x1 - x2), 2) )+ Math.pow((y1 - y2), 2) );
+        public static double distancia( double x1, double y1, double x2, double y2){
+            double distance = Math.sqrt((Math.pow((x1 - x2), 2) )+ Math.pow((y1 - y2), 2) );
             System.out.print("distancia es:" +distance);
             return distance;
                     
