@@ -26,13 +26,49 @@ public class Ud4EjercicioFunciones {
             case 1:
                 System.out.println("Dame el número de radio de la superficie:");
                 double radio = sc.nextDouble();
-                double resultadosuperficie;
-                resultadosuperficie = superficie( double radio);
+                 superficie(radio);
+                 volumen(radio);
+                
+                break;
+                
+            case 2:
+                System.out.println("Introduce un numero entero");
+                int numPar = sc.nextInt();
+                //declaracion de la funcion 
+                 numPares(numPar);
+                
         }
+        
     }
-    public static double superficie(double radio){
-         double superficie = (4 * Math.PI) * Math.pow(radio, 2);
-         System.out.println("la superficie es " +superficie);
-         return superficie;
-    }
+        public static double superficie(double radio){
+             double superficie = (4 * Math.PI) * Math.pow(radio, 2);
+             System.out.println("la superficie es " +superficie);
+             //retornara el valor de la superficie que es la formula 
+             return superficie;
+        }
+        public static double volumen(double radio){
+            //hay que sepafar la division para que se haga esa operacion antes y luego multiplciarlo por el PI
+             double vol = (4.0/3.0) * Math.PI * Math.pow(radio, 3);
+             System.out.println("El volumen es:" + vol);
+             return vol;
+        }
+        
+        public static int numPares(int numPar){
+            int pares = 2;
+            
+            for(int i = 0; i < numPar; i++){
+                // se saca el valor del par que es 2 y se imprime
+                System.out.print( pares + " ");
+                //se actualiza el valor sumando 2 al numero anterior
+                pares = pares + 2 ;
+            }
+            //cuando termine de dar vueltas es decir que vea que pasa del numero original de numero que introduce el usuario
+            // y este da un salto de linea a devolver el valor de numPar al usuario.
+            System.out.println();
+            return numPar;
+        }
+        
+        public static double distancia(){
+            
+        }
 }
