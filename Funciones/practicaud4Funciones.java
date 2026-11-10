@@ -1,3 +1,8 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.ud4ejerciciofunciones;
 import java.util.Scanner;
 import java.lang.Math;
         
@@ -50,6 +55,13 @@ public class Ud4EjercicioFunciones {
                 double distance= distancia(x1, y1, x2, y2);
                 
                 System.out.println("La distancia es: " + distance);
+                
+                break;
+            case 4:
+                System.out.println("introduce el numero de minutos");
+               int  minutos = sc.nextInt();
+                 totalSeg(minutos);
+                
         }
         
     }
@@ -86,5 +98,12 @@ public class Ud4EjercicioFunciones {
             System.out.print("distancia es:" +distance);
             return distance;
                     
+        }
+        
+        public static int totalSeg(int minutos){
+            int totalsegundos = minutos * 60;
+            System.out.println("el total de segundos es:" + totalsegundos);
+            return totalsegundos;
+            
         }
 }
