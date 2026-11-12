@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.simulacroexamenfunciones;
 import java.util.Scanner;
 /**
@@ -28,7 +24,9 @@ public class SimulacroexamenFunciones {
             System.out.println("Introduce el codigo del producto: ");
             int codigo = sc.nextInt();
             if(codigo != 1 || codigo !=2 || codigo !=3){
-                System.out.print
+                System.out.print("El codigo es incorrecto");
+            }else{
+                obtenerPrecio( codigo);
             }
             System.out.println("Introduce la cantidad de articulo");
             int numProductos = sc.nextInt();
@@ -36,9 +34,9 @@ public class SimulacroexamenFunciones {
         }
     }
     
-    public static int obtenerPrecio(int codigo){
+    public static double obtenerPrecio(int codigo){
         double precio = 0;
-        
+        codigo = (int) precio;
         if ( codigo == 1){
             precio = 1.50;
         }
@@ -48,5 +46,7 @@ public class SimulacroexamenFunciones {
         if (codigo == 3){
             precio = 1.80;
         } 
-        return 0;
+        
+        return precio;
+        
     }  
