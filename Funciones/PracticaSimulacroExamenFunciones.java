@@ -1,4 +1,3 @@
-
 package com.mycompany.simulacroudfunciones;
 import java.util.Scanner;
 /**
@@ -26,7 +25,10 @@ public class SimulacroUDFunciones {
         //pedimos primero el codigo y luego la cantidad
             System.out.println("Introduce el codigo del producto: ");
             int codigo = sc.nextInt();
-            if(codigo != 1 && codigo !=2 && codigo !=3){
+            if(codigo == 0){
+                System.out.println("Pedido cancelado");
+            }
+            else if(codigo != 1 && codigo !=2 && codigo !=3){
                 System.out.print("El codigo es incorrecto");
             }else{
                 precio = obtenerPrecio( codigo);
@@ -41,8 +43,9 @@ public class SimulacroUDFunciones {
            
         }
         
-        if(numProductos > 1 && precio == 10){
+        if(numProductos > 1 && precio >=10){
                 System.out.println("El pedido supera los 10 euros");
+                precio = precio * 0.10;// se multiplica el precio por el porcentaje convertir a 
         }
     }
         System.out.println();
