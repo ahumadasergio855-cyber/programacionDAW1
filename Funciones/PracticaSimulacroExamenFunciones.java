@@ -1,3 +1,4 @@
+
 package com.mycompany.simulacroudfunciones;
 import java.util.Scanner;
 /**
@@ -34,34 +35,34 @@ public class SimulacroUDFunciones {
             System.out.println("Introduce la cantidad de articulo");
              numProductos = sc.nextInt();
             while( numProductos > 1){
-            if(codigo == 1 || codigo ==  2 || codigo == 3){
-                numProductos++;
-            }else if( codigo == 0){
-                System.out.println("Pedido cancelado");
-            }
-           }
+            double totalPedido = precio * numProductos;
+            
+            System.out.println("Total pedido: " +totalPedido + "euros");
            
         }
         
         if(numProductos > 1 && precio == 10){
-            
+                System.out.println("El pedido supera los 10 euros");
         }
     }
-    
+        System.out.println();
+            System.out.println("1 Registrar un nuevo pedido");
+            System.out.println("0 Terminar la jornada");
+            System.out.println("Selecciona una opcion: ");
+            opcion = sc.nextInt();
+    }
+ 
     public static double obtenerPrecio(int codigo){
         double precio = 0;
          
-        if ( codigo == 1){
-            precio = 1.50;
-        }
-        if( codigo == 2) {
-                precio = 2.20;
-                }
-        if (codigo != 3){
-        } else {
-            precio = 1.80;
-        } 
+       if(codigo == 1 ){
+           precio = 1.50;
+       }else if(codigo == 2){
+           precio =2.20;
+       }else if(codigo == 3){
+           precio = 1.80;
+       }
         
-        return 0;
-        
+       return precio;
+    }
     }  
