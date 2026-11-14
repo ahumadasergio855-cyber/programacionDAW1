@@ -8,64 +8,110 @@ public class SimulacroUDFunciones {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        
+        int pedidosCobrados = 0;
+        double recaudadoTotal = 0;
+        double pedidoMascaro = 0 ;
         System.out.println("-----CAFETERIA-----");
         System.out.println("1 registrar un nuevo pedido");
         System.out.println("0 Terminar la jornada");
         System.out.println("Selecciona una opcion: ");
         //logica de opcion de bucle while
         int opcion = sc.nextInt();
-        int numProductos = 0;
-        double precio = 0;
-        while( opcion == 1){
-            //menu de los productos para el cliente 
-            System.out.println("productos: ");
-        System.out.println("Cafe(1) 1,50 EUROS");
-        System.out.println("Tostada(2)  2,20 EUROS");
-        System.out.println("Zumo (3)  1,80 EUROS");
-        //pedimos primero el codigo y luego la cantidad
-            System.out.println("Introduce el codigo del producto: ");
-            int codigo = sc.nextInt();
-            if(codigo == 0){
-                System.out.println("Pedido cancelado");
-            }
-            else if(codigo != 1 && codigo !=2 && codigo !=3){
-                System.out.print("El codigo es incorrecto");
-            }else{
-                precio = obtenerPrecio( codigo);
-                System.out.println("Precio del producto: " + precio + " EUROS ");
-            }
-            System.out.println("Introduce la cantidad de articulo");
-             numProductos = sc.nextInt();
-            while( numProductos > 1){
-            double totalPedido = precio * numProductos;
-            
-            System.out.println("Total pedido: " +totalPedido + "euros");
-           
-        }
         
-        if(numProductos > 1 && precio >=10){
-                System.out.println("El pedido supera los 10 euros");
-                precio = precio * 0.10;// se multiplica el precio por el porcentaje convertir a 
-        }
-    }
-        System.out.println();
+        while( opcion !=0){
+            double subtotal= 0;
+            
+            System.out.println("Introduce el codigo del producto");
+            int codigo =  sc.nextInt();
+            
+            while(codigo !=0){
+                if(codigo != 1 && codigo !=2 && codigo !=3){
+                    System.out.println("Codigo incorrecto");
+                } else {
+                    double precio = obtenerPrecio(codigo);
+                    
+                    System.out.println("Introduce la cantidad de articulos");
+                    int cantidad = sc.nextInt();
+                    
+                    while ( cantidad <= 0){
+                        System.out.println("Introduce la cantidad de articulos: ");
+                    }
+                    subtotal += precio * cantidad;
+                }
+                
+                System.out.println("Introduce el codigo del producto:");
+                codigo = sc.nextInt();
+            }
+            if(subtotal == 0){
+                System.out.println("Pedido cancelado");
+            } else {
+                double descuento =  Calculodescuento(subtotal);
+                double total =  subtotal - descuento;
+                
+                System.out.println("Resumen pedido: ");
+                System.out.println("Subtotal: " + subtotal + " EUROS");
+                
+                if(descuento > 0){
+                    System.out.println("Se aplico al precio un 10% de descuento");
+                } else { 
+                    System.out.println("No se aplica ningun descuento");
+                }
+                
+                System.out.println("Total:" + total +  "EUROS");
+                System.out.println("Introducir dinero:");
+                double dineroentregado = sc.nextInt();
+                while (dineroentregado < total){
+                    System.out.println("Introducir su dinero por favor");
+                }
+                double cambioDinero = calcularCambio(total, dineroentregado);
+                
+                System.out.println("Cambio a devolver: " + cambioDinero + "EUROS");
+                
+                pedidosCobrados++;
+                
+                recaudadoTotal += total;
+                if(total < pedidoMascaro){
+                    pedidoMascaro = total;
+                }
+            }
+            System.out.println();
+            System.out.println("-----CAFETERIA-----");
             System.out.println("1 Registrar un nuevo pedido");
             System.out.println("0 Terminar la jornada");
-            System.out.println("Selecciona una opcion: ");
+            System.out.println("Selecciona una opcion:");
+            
             opcion = sc.nextInt();
-    }
- 
-    public static double obtenerPrecio(int codigo){
-        double precio = 0;
-         
-       if(codigo == 1 ){
-           precio = 1.50;
-       }else if(codigo == 2){
-           precio =2.20;
-       }else if(codigo == 3){
-           precio = 1.80;
-       }
+        }
         
-       return precio;
+        System.out.println();
+        System.out.println("Fin de la jornada: ");
+        System.out.println("Numero de pedidos cobrados:" + pedidosCobrados);
+        System.out.println("Recaudacion total: " +recaudadoTotal + "EUROS");
+        System.out.println("Pedido mas caro: " + pedidoMascaro + "EUROS");
+        
+         
     }
-    }  
+    
+    public static double calcularCambio( double total, double dineroentregado){
+        return dineroentregado - total;
+    }
+    
+    public static double obtenerPrecio(int codigo){
+        if(codigo == 1){
+            return 1.50;
+        } else if( codigo == 2){
+            return 2.20;
+        }else if (codigo == 3){
+            return 1.80;
+        }
+        return 0 ;
+    }
+    
+    public static double Calculodescuento( double subtotal){
+        if(subtotal >= 10){
+            return subtotal * 0.10;
+        }
+        return 0 ;
+    }
+}
