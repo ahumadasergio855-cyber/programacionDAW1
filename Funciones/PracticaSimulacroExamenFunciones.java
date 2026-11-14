@@ -25,7 +25,7 @@ public class SimulacroUDFunciones {
             System.out.println("Introduce el codigo del producto");
             int codigo =  sc.nextInt();
             
-            while(codigo !=0){
+            while(codigo <=0){
                 if(codigo != 1 && codigo !=2 && codigo !=3){
                     System.out.println("Codigo incorrecto");
                 } else {
@@ -63,6 +63,7 @@ public class SimulacroUDFunciones {
                 double dineroentregado = sc.nextInt();
                 while (dineroentregado < total){
                     System.out.println("Introducir su dinero por favor");
+                    dineroentregado = sc.nextDouble();
                 }
                 double cambioDinero = calcularCambio(total, dineroentregado);
                 
@@ -71,7 +72,7 @@ public class SimulacroUDFunciones {
                 pedidosCobrados++;
                 
                 recaudadoTotal += total;
-                if(total < pedidoMascaro){
+                if(total > pedidoMascaro){
                     pedidoMascaro = total;
                 }
             }
@@ -115,3 +116,4 @@ public class SimulacroUDFunciones {
         return 0 ;
     }
 }
+        
