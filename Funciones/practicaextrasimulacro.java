@@ -16,6 +16,7 @@ public class ParkinejercicioFunciones {
         int clientesatendidos = 0;
         double recaudadototal = 0;
         double importe = 0;
+        double ticketMascaro = 0;
          do{
            System.out.println("Un parking cobra: ");
            System.out.println("Moto(codigo 1): 2 EUROS por Hora");
@@ -27,34 +28,34 @@ public class ParkinejercicioFunciones {
                   
                    System.out.println("Introduce el codigo del vehiculo");
                    int codigo = sc.nextInt();
-                   obtenerTarifa( codigo);
+                   double tarifa = obtenerTarifa( codigo);
                    if (codigo <0){
                        System.out.println("Codigo no valido");
                    }else {
-                       System.out.println("Vas a registrar una moto");
-                       System.out.println("Introduce el codigo del vehiculo");
-                        codigo = sc.nextInt();
+                       
                         System.out.println("Introduce las horas que deseas alquilarlo: ");
                         int horasalquiladas = sc.nextInt();
                         System.out.println("Introduce el dinero: ");
                           importe = sc.nextDouble();
-                         importe = obtenerTarifa(codigo) * horasalquiladas;
-                        if(horasalquiladas > 0 ){
-                            
-                         recaudadototal = obtenerTarifa(codigo) * horasalquiladas;
-                          clientesatendidos++;
-                        } else{
-                            System.out.println("el numero de horas no es valido");
+                         importe = tarifa * horasalquiladas;
+                        while (horasalquiladas > 0 ){
+                          System.out.println("Horas no validas");
+                          horasalquiladas = sc.nextInt();
                         }
-                        
-                        
                    }     
                    
          }while(opcion !=2);
            if( importe > 20){
-               recaudadototal = importe 
+               double descuento = importe * 0.15;
+               recaudadototal += (importe - descuento);
+               
+           } else {
+               recaudadototal += importe;
            }
-         
+           
+          if( importe > ticketMascaro){
+              ticketMascaro = importe;
+          }
     }
     
     static double obtenerTarifa( int codigo){
