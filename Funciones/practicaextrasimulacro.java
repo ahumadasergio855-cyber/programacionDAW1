@@ -8,16 +8,18 @@ public class ParkinejercicioFunciones {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println(" MENU ");
-        System.out.println("1.Registrar vehiculo");
-        System.out.println("2.Cerrar parking");
-        System.out.println("Elige una opcion: ");
         int opcion = sc.nextInt();
         int clientesatendidos = 0;
         double recaudadototal = 0;
         double importe = 0;
         double ticketMascaro = 0;
-         do{
+        do{
+        System.out.println(" MENU ");
+        System.out.println("1.Registrar vehiculo");
+        System.out.println("2.Cerrar parking");
+        System.out.println("Elige una opcion: ");
+        
+           if(opcion == 1){
            System.out.println("Un parking cobra: ");
            System.out.println("Moto(codigo 1): 2 EUROS por Hora");
            System.out.println("Coche (codigo 2): 4 EUROS por Hora");
@@ -37,13 +39,14 @@ public class ParkinejercicioFunciones {
                         int horasalquiladas = sc.nextInt();
                         System.out.println("Introduce el dinero: ");
                           importe = sc.nextDouble();
+                          clientesatendidos ++;
                          importe = tarifa * horasalquiladas;
-                        while (horasalquiladas > 0 ){
+                        while (horasalquiladas <=  0 ){
                           System.out.println("Horas no validas");
                           horasalquiladas = sc.nextInt();
                         }
                    }     
-                   
+           }  
          }while(opcion !=2);
            if( importe > 20){
                double descuento = importe * 0.15;
@@ -56,6 +59,11 @@ public class ParkinejercicioFunciones {
           if( importe > ticketMascaro){
               ticketMascaro = importe;
           }
+          
+          System.out.println("PARKING CERRADO");
+                System.out.println("Clientes atendidos: " + clientesatendidos);
+                System.out.println("Recaudacion total: " + recaudadototal);
+                System.out.println("Ticket mas caro: " + ticketMascaro);
     }
     
     static double obtenerTarifa( int codigo){
