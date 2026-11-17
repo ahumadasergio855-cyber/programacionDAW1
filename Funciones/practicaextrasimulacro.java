@@ -13,6 +13,7 @@ public class ParkinejercicioFunciones {
         double recaudadototal = 0;
         double importe = 0;
         double ticketMascaro = 0;
+        double media = 0;
         int opcion = 0;
         
         do{
@@ -21,6 +22,9 @@ public class ParkinejercicioFunciones {
             System.out.println("2.Cerrar parking");
             System.out.println("Elige una opcion: ");
             opcion = sc.nextInt();
+            if(opcion != 1 && opcion !=2){
+                System.out.println("Opcion incorrecta");
+            }else {
         
            if(opcion == 1){
            System.out.println("Un parking cobra: ");
@@ -40,27 +44,30 @@ public class ParkinejercicioFunciones {
                        
                         System.out.println("Introduce las horas que deseas alquilarlo: ");
                         int horasalquiladas = sc.nextInt();
-                        System.out.println("Introduce el dinero: ");
-                          importe = sc.nextDouble();
-                          clientesatendidos ++;
+                        
+                         
                           while (horasalquiladas <=  0 ){
                           System.out.println("Horas no validas");
                           horasalquiladas = sc.nextInt();
                         }
+                         clientesatendidos ++;
                          importe = tarifa * horasalquiladas;
-                        
-                   } if( importe > 20){
-               double descuento = importe * 0.15;
-               recaudadototal += (importe - descuento);
+                     double importeFinal = importe;
+                       if( importe > 20){
+               double descuento = CalcularDescuento(importe);
+               importeFinal= importe - descuento;
                
-           } else {
-               recaudadototal += importe;
-           }
-           
-          if( importe > ticketMascaro){
-              ticketMascaro = importe;
-          }    
-           }  
+               } 
+                   recaudadototal += importeFinal;
+                  media = CalculoMedia(recaudadototal , clientesatendidos);
+              if( importe > ticketMascaro){
+                   ticketMascaro = importe;
+                 }    
+               }    
+                         
+                   }
+        }
+            
          }while(opcion !=2);
            
           
@@ -68,6 +75,7 @@ public class ParkinejercicioFunciones {
                 System.out.println("Clientes atendidos: " + clientesatendidos);
                 System.out.println("Recaudacion total: " + recaudadototal);
                 System.out.println("Ticket mas caro: " + ticketMascaro);
+                System.out.println("La media de pedidos cobrados es: " + media);
     }
     
     static double obtenerTarifa( int codigo){
@@ -79,5 +87,19 @@ public class ParkinejercicioFunciones {
                     return 6;
                 }
         return 0;
+    }
+    
+    static double CalcularDescuento(double importe){
+        double importedescuento = importe * 0.15;
+        return importedescuento;
+    }
+    
+    static double CalculoMedia( double recaudadototal, int clientesatendidos){
+        if(recaudadototal > 0){
+       double mediaCobrado = recaudadototal  / clientesatendidos ;
+       return mediaCobrado;
+        }else {
+            return 0 ;
+        }
     }
 }
