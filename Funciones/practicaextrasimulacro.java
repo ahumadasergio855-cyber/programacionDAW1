@@ -95,7 +95,7 @@ public class ParkinejercicioFunciones {
     }
     
     static double CalculoMedia( double recaudadototal, int clientesatendidos){
-        if(recaudadototal > 0){
+        if(clientesatendidos > 0){
        double mediaCobrado = recaudadototal  / clientesatendidos ;
        return mediaCobrado;
         }else {
