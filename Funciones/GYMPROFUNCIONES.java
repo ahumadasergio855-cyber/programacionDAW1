@@ -1,4 +1,3 @@
-
 package com.mycompany.gymprofunciones;
 import java.util.Scanner;
 /**
@@ -29,14 +28,18 @@ public class GymProFunciones {
                  System.out.println("Membresia VIP (3) - precio 50 EUROS");
                  System.out.println("Introduce el codigo de membresia: ");
                  int codigo =  sc.nextInt();
-                 if(codigo !=1 && codigo !=2 && codigo !=3){
+                 while(codigo !=1 && codigo !=2 && codigo !=3){
                  System.out.println("Error de codigo");
-             } else{
+                 codigo =  sc.nextInt();
+                 }
                      double precio = obtenerPrecio(codigo);
                      
                      System.out.println("Introduce el numero de meses: ");
                      int numMeses = sc.nextInt();
-                     if( numMeses >0){
+                     while( numMeses <= 0){
+                         System.out.println("Numero de meses erroneo");
+                         numMeses =  sc.nextInt();
+                     }
                          double importe = precio * numMeses;
                           clientesAtendidos++;
                          if(importe >= 100){
@@ -50,7 +53,7 @@ public class GymProFunciones {
                          }
                          importeFinal = importe - importedescuento;
                         if(importeFinal > importeMayor ){
-                            importeMayor = importe;
+                            importeMayor = importeFinal;
                         }
                         if( codigo == 3){
                             clientesvip++;
@@ -64,10 +67,8 @@ public class GymProFunciones {
                          
                          // en el clinete se muestra el importe final y en el resumen la recaudacion total de todos los clientes
                          
-                     }else{
-                         System.out.println("Numero de meses erroneo");
-                     }
-                 }
+                    
+                 
              }
         }while(opcion !=0);
         
