@@ -1,3 +1,4 @@
+
 package com.mycompany.gymprofunciones;
 import java.util.Scanner;
 /**
@@ -61,7 +62,7 @@ public class GymProFunciones {
                          System.out.println("descuento: " + importedescuento);
                          System.out.println("Total: " + importeFinal);
                          
-                         
+                         // en el clinete se muestra el importe final y en el resumen la recaudacion total de todos los clientes
                          
                      }else{
                          System.out.println("Numero de meses erroneo");
@@ -72,9 +73,10 @@ public class GymProFunciones {
         
         System.out.println("Gimansio Cerrado");
         System.out.println("Clientes Atendidos:" + clientesAtendidos);
-        System.out.println("Recaudacion total:" + importeFinal);
-        System.out.println("importe medio: " + CalcularMedia( importeFinal, clientesAtendidos));
+        System.out.println("Recaudacion total:" + recaudacionTotal);
+        System.out.println("importe medio: " + CalcularMedia( recaudacionTotal, clientesAtendidos));
         System.out.println("Clientes VIP registrados:" + clientesvip);
+        System.out.println("Importe mayor: " + importeMayor);
     }
     
     static double obtenerPrecio( int codigo){
