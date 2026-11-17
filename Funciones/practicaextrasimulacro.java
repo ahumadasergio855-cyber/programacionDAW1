@@ -13,14 +13,14 @@ public class ParkinejercicioFunciones {
         double recaudadototal = 0;
         double importe = 0;
         double ticketMascaro = 0;
+        int opcion = 0;
         
-        System.out.println(" MENU ");
-        System.out.println("1.Registrar vehiculo");
-        System.out.println("2.Cerrar parking");
-        System.out.println("Elige una opcion: ");
-        int opcion = sc.nextInt();
         do{
-        
+            System.out.println(" MENU ");
+            System.out.println("1.Registrar vehiculo");
+            System.out.println("2.Cerrar parking");
+            System.out.println("Elige una opcion: ");
+            opcion = sc.nextInt();
         
            if(opcion == 1){
            System.out.println("Un parking cobra: ");
@@ -43,11 +43,12 @@ public class ParkinejercicioFunciones {
                         System.out.println("Introduce el dinero: ");
                           importe = sc.nextDouble();
                           clientesatendidos ++;
-                         importe = tarifa * horasalquiladas;
-                        while (horasalquiladas <=  0 ){
+                          while (horasalquiladas <=  0 ){
                           System.out.println("Horas no validas");
                           horasalquiladas = sc.nextInt();
                         }
+                         importe = tarifa * horasalquiladas;
+                        
                    } if( importe > 20){
                double descuento = importe * 0.15;
                recaudadototal += (importe - descuento);
