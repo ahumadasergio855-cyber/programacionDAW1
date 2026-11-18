@@ -1,6 +1,11 @@
-public class PracticavideojuegoFunciones {
-        
-        
+package com.mycompany.videogamefunciones;
+import java.util.Scanner;
+/**
+ *
+ * @author Carmen
+ */
+public class VideoGameFunciones {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         //declaramos las variables
@@ -32,17 +37,20 @@ public class PracticavideojuegoFunciones {
             double precio = obtenerPrecio(codigo);
             System.out.println("Introduce el número de dias: ");
             int numDias = sc.nextInt();
-            subtotal += precio * numDias;
+            subtotal  =precio * numDias;
             if(numDias >0){
                 double importe = precio * numDias;
                 double descuento = calcularDescuento (importe);
-                alquileresRealizados++;
+                
                 double total = subtotal - descuento;
                 
                 recaudadoTotal += total;
                 if(total>alquilerMascaro){
                     alquilerMascaro = total;
                 }
+                if(precio == 0){
+                    System.out.println("Codigo de pelicula no valido");
+                } else {
                 if(codigo == 1){
                     clientesAccion++;
                 } else if (codigo == 2) {
@@ -52,7 +60,8 @@ public class PracticavideojuegoFunciones {
                 } else {
                     clientesTerror++;
                 }
-                
+                }
+                alquileresRealizados++;
                 //resumen del cliente
                 System.out.println("RESUMEN");
                 System.out.println("Subtotal: " + subtotal);
@@ -61,13 +70,14 @@ public class PracticavideojuegoFunciones {
             } else {
                 System.out.println("El numero de dias no es valido");
             }
-        } else {
+        } else if(opcion != 0) {
             System.out.println("Opcion no valida");
         }
         }while(opcion !=0);
         System.out.println("VIDEOCLUB CERRADO");
         System.out.println("Alquileres realizados: " + alquileresRealizados);
         System.out.println("Recaudacion total: " +recaudadoTotal);
+        System.out.println("Media de alquileres: " + CalcularMedia( recaudadoTotal, alquileresRealizados));
         System.out.println("Alquiler mas caro: " +alquilerMascaro);
         System.out.println("Alquileres Accion: " +clientesAccion);
         System.out.println("Alquilres Comedia: " +clientesComedia);
@@ -98,4 +108,10 @@ public class PracticavideojuegoFunciones {
               return 0;
           }
       }
-}
+      static double CalcularMedia(double total, int alquileresRealizados){
+          if(alquileresRealizados == 0){
+              return 0;
+          }
+          double media = total / alquileresRealizados;
+          return media;
+      }
