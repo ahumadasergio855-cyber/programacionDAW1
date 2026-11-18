@@ -1,4 +1,3 @@
-
 package com.mycompany.videogamefunciones;
 import java.util.Scanner;
 /**
@@ -46,8 +45,8 @@ public class VideoGameFunciones {
             int numDias = sc.nextInt();
             
             if(numDias >0){
-                double importe = precio * numDias;
-                 double descuento = calcularDescuento (importe);
+                 subtotal = precio * numDias;
+                  descuento = calcularDescuento (subtotal);
                 
                 double total = subtotal - descuento;
                 alquileresRealizados++;
@@ -108,11 +107,11 @@ public class VideoGameFunciones {
         }
     }
     
-      static double calcularDescuento(double importe){
-          if( importe >= 40){
-              return  importe * 0.20;
-          } else if (importe >= 20){
-               return importe * 0.10;
+      static double calcularDescuento(double subtotal){
+          if( subtotal >= 40){
+              return  subtotal * 0.20;
+          } else if (subtotal >= 20){
+               return subtotal * 0.10;
           } else {
               return 0;
           }
