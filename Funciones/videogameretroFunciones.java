@@ -1,13 +1,4 @@
-package com.mycompany.videogamefunciones;
-import java.util.Scanner;
-/**
- *
- * @author Carmen
- */
-public class VideoGameFunciones {
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+Scanner sc = new Scanner(System.in);
         //declaramos las variables
         
         int alquileresRealizados = 0;
@@ -41,13 +32,14 @@ public class VideoGameFunciones {
             if(numDias >0){
                 double importe = precio * numDias;
                 double descuento = calcularDescuento (importe);
-                
+                alquileresRealizados++;
                 double total = subtotal - descuento;
                 
                 recaudadoTotal += total;
                 if(total>alquilerMascaro){
                     alquilerMascaro = total;
                 }
+                
                 if(precio == 0){
                     System.out.println("Codigo de pelicula no valido");
                 } else {
@@ -61,7 +53,7 @@ public class VideoGameFunciones {
                     clientesTerror++;
                 }
                 }
-                alquileresRealizados++;
+                
                 //resumen del cliente
                 System.out.println("RESUMEN");
                 System.out.println("Subtotal: " + subtotal);
@@ -115,3 +107,4 @@ public class VideoGameFunciones {
           double media = total / alquileresRealizados;
           return media;
       }
+}
