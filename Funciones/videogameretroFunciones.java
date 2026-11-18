@@ -1,15 +1,26 @@
-Scanner sc = new Scanner(System.in);
+
+package com.mycompany.videogamefunciones;
+import java.util.Scanner;
+/**
+ *
+ * @author Carmen
+ */
+public class VideoGameFunciones {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         //declaramos las variables
         
         int alquileresRealizados = 0;
         double recaudadoTotal = 0;
         double subtotal = 0;
         double alquilerMascaro = 0;
+        double descuento = 0;
         int clientesAccion = 0;
         int clientesComedia = 0;
         int clientesCienciaFiccion = 0;
         int clientesTerror = 0;
-        int opcion = 0;
+        int opcion;
         do{
             //menu que se repetira para cuando termine el proceso del registro 
         System.out.println("-----VIDEOCLUB-----");
@@ -25,24 +36,27 @@ Scanner sc = new Scanner(System.in);
             System.out.println("Tipo Terror (codigo 4) - Precio 5 EUROS");
             System.out.println("Introduce el codigo de pelicula: ");
             int codigo = sc.nextInt();
-            double precio = obtenerPrecio(codigo);
-            System.out.println("Introduce el número de dias: ");
-            int numDias = sc.nextInt();
-            subtotal  =precio * numDias;
-            if(numDias >0){
-                double importe = precio * numDias;
-                double descuento = calcularDescuento (importe);
-                alquileresRealizados++;
-                double total = subtotal - descuento;
-                
-                recaudadoTotal += total;
-                if(total>alquilerMascaro){
-                    alquilerMascaro = total;
-                }
-                
+            
+           
+                double precio = obtenerPrecio(codigo);
                 if(precio == 0){
                     System.out.println("Codigo de pelicula no valido");
                 } else {
+                 System.out.println("Introduce el número de dias: ");
+            int numDias = sc.nextInt();
+            
+            if(numDias >0){
+                double importe = precio * numDias;
+                 double descuento = calcularDescuento (importe);
+                
+                double total = subtotal - descuento;
+                alquileresRealizados++;
+                recaudadoTotal += total;
+                //resumen del cliente
+                System.out.println("RESUMEN");
+                System.out.println("Subtotal: " + subtotal);
+                System.out.println("Descuento: " + descuento);
+                System.out.println("total: " + total);
                 if(codigo == 1){
                     clientesAccion++;
                 } else if (codigo == 2) {
@@ -51,21 +65,24 @@ Scanner sc = new Scanner(System.in);
                     clientesCienciaFiccion++;
                 } else {
                     clientesTerror++;
+                       }
+                if(total>alquilerMascaro){
+                    alquilerMascaro = total;
+                    
                 }
-                }
-                
-                //resumen del cliente
-                System.out.println("RESUMEN");
-                System.out.println("Subtotal: " + subtotal);
-                System.out.println("Descuento: " + descuento);
-                System.out.println("total: " + total);
-            } else {
+                }else {
                 System.out.println("El numero de dias no es valido");
             }
-        } else if(opcion != 0) {
+                
+                }
+        
+            
+        } else if (opcion != 0) {
             System.out.println("Opcion no valida");
         }
         }while(opcion !=0);
+        
+                
         System.out.println("VIDEOCLUB CERRADO");
         System.out.println("Alquileres realizados: " + alquileresRealizados);
         System.out.println("Recaudacion total: " +recaudadoTotal);
