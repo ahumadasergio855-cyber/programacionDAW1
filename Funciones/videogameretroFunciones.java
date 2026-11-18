@@ -1,4 +1,3 @@
- */
 
 package com.mycompany.practicavideojuegofunciones;
 import java.util.Scanner;
@@ -29,6 +28,12 @@ public class PracticavideojuegoFunciones {
             int codigo = sc.nextInt();
             double precio = obtenerPrecio(codigo);
             System.out.println("Introduce el número de dias: ");
+            int numDias = sc.nextInt();
+            if(numDias >0){
+                
+            } else {
+                System.out.println("El numero de dias no es valido");
+            }
         } else {
             System.out.println("Opcion no valida");
         }
