@@ -1,0 +1,2 @@
+1.- Corregir varibles ( es importante que te enteres del ambito )
+2.- Corregir el 3 ( si no te sale el uno, no hagas este )
