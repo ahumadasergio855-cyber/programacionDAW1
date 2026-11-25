@@ -1,13 +1,14 @@
-package com.mycompany.ejerciciosud5vectores;
-import java.util.Scanner;
+
+package com.mycompany.ejerciciosintroductoriosud5;
+
 /**
  *
- * @author usuario
+ * @author Carmen
  */
-public class EjerciciosUD5Vectores {
+public class EjerciciosIntroductoriosUD5 {
 
     public static void main(String[] args) {
-        Scanner sc =  new Scanner(System.in);
+         Scanner sc =  new Scanner(System.in);
         // Crea un programa que le pida al usuario 3 numeros y luego los muestre en el mismo orden que los ha introducido
         int numerosUsuario [] =  new int [3];
         
@@ -32,17 +33,31 @@ public class EjerciciosUD5Vectores {
             numerosUsuario2[i] = sc.nextInt();
             
         }
-        
+        int totalUsuario = 0;
         for(int i = 0 ; i < cantidadUsuario2 ; i++){
             System.out.print(numerosUsuario2[i] + " ");
-            numerosUsuario2 += int totalUsuario;
-            System.out.println("total: " + totalUsuario);
+            totalUsuario += numerosUsuario2[i];
+            System.out.println("total de la suma es : " + totalUsuario);
         }
         
         
         
        // Crea un programa que pida la cantidad de temperatura registradas. Despues , muestra un mensaje con la temperatura mas alta de todas y la temperatura media.
        
+       System.out.println("¿Cuanta temperatura va a registrar? :");
+       int cantidadTemperatura =  sc.nextInt();
        
+       double temperaturas [] =  new double [cantidadTemperatura];
+       
+       for(int i = 0 ; i < cantidadTemperatura ; i++){
+           System.out.println("Introduce la temperatura: ");
+           temperaturas [i] =  sc.nextDouble();
+       }
+       
+       double sumaTemperaturas = 0;
+       double mayor = temperaturas[0];
+       for ( int i = 0; i < cantidadTemperatura ; i++){
+           sumaTemperaturas += temperaturas[i];
+       }
     }
 }
